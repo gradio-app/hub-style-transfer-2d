@@ -104,7 +104,7 @@ def generate(content, style):
     # content, style = np.array(content, style)
     # style = Image.fromarray(np.uint8(style)).convert('RGB')
 
-    style = style[..., :3]
+    # style = style[..., :3]
     param_f = lambda: style_transfer_param(content, style)
 
     content_obj = 100 * activation_difference(content_layers,
@@ -118,17 +118,24 @@ def generate(content, style):
     objective = - content_obj - style_obj
 
     vis = \
-    render.render_vis(model, objective, param_f=param_f, thresholds=[512],
+    render.render_vis(model, objective, param_f=param_f, thresholds=[224],
                       verbose=False)[-1]
-    # print(type(vis))
-    # print(vis[0,:,:,:].shape)
+
     return vis[0,:,:,:]
 
 
+description="This model uses Tensorflow's Lucid library to perform style " \
+            "transfer between two images."
+examples=[
+    ["examples/big-ben.png","examples/starry-night.jpg"],
+    ["examples/elon_musk.jpg","examples/mona-lisa.jpg"]
+]
+
 inputs = [gr.inputs.Image(shape=(512, 512)), gr.inputs.Image(shape=(512,
-                                                                    512), 
-                                                             image_mode=None)]
+                                                                    512))]
 outputs = gr.outputs.Image(label="Stylized Image")
 
-gr.Interface(generate, inputs, outputs, title="Style Transfer (Lucid)").launch(
+gr.Interface(generate, inputs, outputs, title="Style Transfer (Lucid)",
+             description=description, examples=examples
+             ).launch(
     inbrowser=True)
