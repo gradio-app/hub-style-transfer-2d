@@ -1,4 +1,3 @@
 lucid>=0.2.3
 numpy
-tensorflow==1.15.2
-gradio
+tensorflow-gpu==1.15
