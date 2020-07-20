@@ -135,6 +135,7 @@ inputs = [gr.inputs.Image(shape=(512, 512)), gr.inputs.Image(shape=(512,
 outputs = gr.outputs.Image(label="Stylized Image")
 
 gr.Interface(generate, inputs, outputs, title="Style Transfer (Lucid)",
-             description=description, examples=examples
+             description=description, examples=examples,
+thumbnail="https://github.com/gradio-app/hub-style-transfer-2d/raw/master/interface.png?raw=true"
              ).launch(
     inbrowser=True)
