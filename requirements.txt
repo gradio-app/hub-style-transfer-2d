@@ -1,7 +1,3 @@
 lucid>=0.2.3
 numpy
-<<<<<<< HEAD
 tensorflow==1.15.2
-=======
-tensorflow==1.15.2
->>>>>>> 10a3a303700cf9435b1e23c1003ac8d5da23fe68

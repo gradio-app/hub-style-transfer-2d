@@ -128,7 +128,6 @@ description="This model uses Tensorflow's Lucid library to perform style " \
             "transfer between two images."
 examples=[
     ["examples/big-ben.png","examples/starry-night.jpg"],
-    ["examples/elon_musk.jpg","examples/mona-lisa.jpg"]
 ]
 
 inputs = [gr.inputs.Image(shape=(512, 512)), gr.inputs.Image(shape=(512,
